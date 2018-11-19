@@ -1,15 +1,12 @@
-# Role Name
-=========
+# Ansible Role: Percona MySQL Server
 
 Installs Percona MySQL Server on Debian/Ubuntu Linux system. Tested on Ubuntu 18.04, but should work on all versions
 
 ## Requirements
-------------
 
 None
 
 ## Role Variables
---------------
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
@@ -17,17 +14,15 @@ Available variables are listed below, along with default values (see `defaults/m
 
 Which package version to install.
 
-  mysql_root_password: 756fgRTsf!efsfTY
+    mysql_root_password: 756fgRTsf!efsfTY
 
 Specify the root password.
 
 ## Dependencies
-------------
 
 None
 
 ## Example Playbook
-----------------
 
  - hosts: servers
    remote_user: root
@@ -40,11 +35,9 @@ None
     - 
 
 ## License
--------
 
 BSD
 
 ## Author Information
-------------------
 
 This role was created by Evgenios Soroka
