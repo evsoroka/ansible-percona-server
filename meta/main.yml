@@ -1,6 +1,7 @@
 galaxy_info:
   author: evsoroka
   description: Percona MySQL Server
+  company:
 
   license: BSD
 
@@ -16,5 +17,4 @@ galaxy_info:
     - mysql
     - sql
     - percona
-    - percona-server
     - system

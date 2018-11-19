@@ -3,18 +3,18 @@
 #Install repo
 
 - name: Add percona repository key
-  apt_key: 
+  apt_key:
     keyserver: keyserver.ubuntu.com
     id: 8507EFA5
     state: present
 
 - name: Add percona repository
-  apt_repository: 
+  apt_repository:
     repo: 'deb http://repo.percona.com/apt {{ ansible_distribution_release }} main'
     state: present
 
 - name: Add percona source repository
-  apt_repository: 
+  apt_repository:
     repo: 'deb-src http://repo.percona.com/apt {{ ansible_distribution_release }} main'
     state: present
 
@@ -23,16 +23,16 @@
 
 #Specify MySQL password before install. Needed because auth_socket is used for default installation
 - name: Specify MySQL root password before installing
-  debconf: name='percona-server-server-{{ db_version }}' question='percona-server-server-{{db_version}}/root_password' value='{{ mysql_root_password | quote}}' vtype='password'
+  debconf: name='percona-server-server-{{ db_version }}' question='percona-server-server-{{ db_version }}/root_password' value='{{ mysql_root_password | quote}}' vtype='password'
 
 - name: Confirm MySQL root password before installing
-  debconf: name='percona-server-server-{{ db_version }}' question='percona-server-server-{{db_version}}/root_password_again' value='{{ mysql_root_password | quote}}' vtype='password'
+  debconf: name='percona-server-server-{{ db_version }}' question='percona-server-server-{{ db_version }}/root_password_again' value='{{ mysql_root_password | quote}}' vtype='password'
 
 #Install packages
 - name: Install percona database server
-  apt: 
+  apt:
     name: "{{ packages }}"
-    state: latest
+    state: present
   vars:
     packages:
     - percona-server-server-{{ db_version }}
@@ -42,7 +42,7 @@
 
 # Update root password
 - name: Set new root password
-  mysql_user: 
+  mysql_user:
     check_implicit_admin=yes
     login_user=root
     login_password={{ mysql_root_password }}
@@ -53,7 +53,7 @@
   with_items:
           - localhost
           - 127.0.0.1
-          - "{{ansible_hostname}}"
+          - "{{ ansible_hostname }}"
   notify: restart percona server
 
 #Hardening
