@@ -23,10 +23,10 @@
 
 #Specify MySQL password before install. Needed because auth_socket is used for default installation
 - name: Specify MySQL root password before installing
-  debconf: name='percona-server-server-{{ db_version }}' question='percona-server-server-{{ db_version }}/root_password' value='{{ mysql_root_password | quote}}' vtype='password'
+  debconf: name='percona-server-server-{{ db_version }}' question='percona-server-server-{{ db_version }}/root_password' value='{{ mysql_root_password | quote }}' vtype='password'
 
 - name: Confirm MySQL root password before installing
-  debconf: name='percona-server-server-{{ db_version }}' question='percona-server-server-{{ db_version }}/root_password_again' value='{{ mysql_root_password | quote}}' vtype='password'
+  debconf: name='percona-server-server-{{ db_version }}' question='percona-server-server-{{ db_version }}/root_password_again' value='{{ mysql_root_password | quote }}' vtype='password'
 
 #Install packages
 - name: Install percona database server
