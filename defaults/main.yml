@@ -1,0 +1,4 @@
+---
+# defaults file for ansible-percona-server
+db_version: 5.7
+mysql_root_password: 756fgRTsf!efsfTY
