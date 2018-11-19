@@ -24,15 +24,15 @@ None
 
 ## Example Playbook
 
- - hosts: servers
-   remote_user: root
-   become: yes
-   become_method: sudo
-   roles:
-    - ansible-percona-server
-   vars:
-    - db_version: 5.7
-    - 
+    - hosts: servers
+      remote_user: root
+      become: yes
+      become_method: sudo
+      roles:
+        - ansible-percona-server
+      vars:
+        - db_version: 5.7
+        - mysql_root_password: 756fgRTsf!efsfTY
 
 ## License
 
